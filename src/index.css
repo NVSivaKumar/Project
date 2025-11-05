@@ -1,0 +1,66 @@
+/* src/index.css */
+
+:root {
+  /* Set base font */
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Reset colors to light theme defaults for the login page */
+  color: #213547; /* Dark text */
+  background-color: #ffffff; /* White background */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Define the main purple color */
+  --hiresphere-purple: #5C2D91;
+}
+
+/* Remove default link/button styles if they interfere with the design */
+a {
+  font-weight: 500;
+  color: var(--hiresphere-purple); /* Use purple for primary links */
+  text-decoration: none; /* Remove underline by default */
+}
+a:hover {
+  color: #747bff;
+  text-decoration: underline;
+}
+
+/* Reset body styles for full-screen layout */
+body {
+  margin: 0;
+  display: block; /* Use block to allow the App to control the layout */
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* Base button style (will be overridden by component CSS) */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: var(--hiresphere-purple);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* We'll ignore the dark mode media query for this specific page */

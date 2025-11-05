@@ -1,0 +1,245 @@
+/* src/LoginPage.css */
+
+.login-page {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    font-family: system-ui, sans-serif;
+}
+
+/* --- Left Panel (Purple Sidebar) --- */
+.left-panel {
+    flex: 1; /* Takes up half the space */
+    background-color: blue;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5rem; /* Padding for the content */
+}
+
+.left-panel h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.left-panel p {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+/* Hide the left panel on smaller screens */
+@media (max-width: 1024px) {
+    .left-panel {
+        display: none;
+    }
+    .right-panel {
+        width: 100%; /* Full width on mobile */
+    }
+}
+
+/* --- Right Panel (Login Form) --- */
+.right-panel {
+    flex: 1; /* Takes up half the space */
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative; /* For positioning the top right nav */
+}
+
+/* Top Right Navigation (Log In / Sign Up) */
+.top-nav {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.top-nav .signup-btn {
+    background-color:blue;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* Form Container */
+.login-form-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-form-container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    color: #213547;
+}
+
+/* Input Fields */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 0.3rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    border-color:blue;
+    outline: none;
+}
+
+/* Checkbox and Forgot Password */
+.options-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+    accent-color: blue;
+}
+
+/* Main Login Button */
+.login-btn {
+    width: 100%;
+    background-color: blue;
+    color: white;
+    padding: 0.8rem 1rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    border: none;
+    margin-bottom: 1.5rem;
+}
+
+.login-btn:hover {
+    opacity: 0.9;
+    border-color: transparent;
+}
+
+/* OR Separator */
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #888;
+    margin: 1.5rem 0;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+}
+
+.separator:not(:empty)::before {
+    margin-right: 1rem;
+}
+
+.separator:not(:empty)::after {
+    margin-left: 1rem;
+}
+
+/* Social Buttons */
+.social-login {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-weight: 500;
+    color: white;
+    border: none;
+}
+
+.social-btn svg {
+    margin-right: 0.5rem;
+}
+
+.google-btn {
+    background-color: #db4437; /* Google Red */
+}
+
+.facebook-btn {
+    background-color: #4267b2; /* Facebook Blue */
+}
+/* --- Message Box / Toast Notification Styling (HIGHLY ATTRACTIVE) --- */
+#message-box {
+    /* Center it absolutely */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9); /* Start slightly smaller and centered */
+    
+    /* Aesthetics */
+    background: linear-gradient(135deg, #FF69B4, #5C2D91); /* Pink to Purple Gradient */
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 25px 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 0 5px rgba(255, 255, 255, 0.2); /* Floating effect with border glow */
+    
+    /* Visibility and Transition */
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.4s ease-out, visibility 0s 0.4s;
+    /* The cubic-bezier makes the notification bounce attractively */
+}
+
+#message-box.visible {
+    transform: translate(-50%, -50%) scale(1); /* Bounce into full size */
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.4s ease-out;
+}
+
+/* Add a subtle overlay behind the box for focus */
+#message-box.visible:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1); /* Slight dimming of the background */
+    z-index: -1;
+}

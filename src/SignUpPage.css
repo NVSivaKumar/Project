@@ -1,0 +1,231 @@
+/* src/SignUpPage.css */
+
+.signup-page {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    font-family: system-ui, sans-serif;
+}
+
+/* --- Left Panel (Purple Sidebar) --- */
+.signup-left-panel {
+    flex: 1; 
+    background-color: green; 
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5rem; 
+    text-align: left;
+}
+
+.signup-left-panel h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.signup-left-panel p {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+/* --- Right Panel (Sign Up Form) --- */
+.signup-right-panel {
+    flex: 1; 
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative; 
+}
+
+/* Top Right Navigation (Log In / Sign Up) */
+.signup-top-nav {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.signup-top-nav .signup-btn-active {
+    background-color: green;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: opacity 0.2s;
+    border: none; 
+}
+
+.signup-top-nav .signup-btn-active:hover {
+    opacity: 0.9;
+}
+
+.signup-top-nav .signup-text-btn {
+    background: none;
+    border: none;
+    color: #4a4a4a;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Form Container */
+.signup-form-container {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 4rem;
+    padding-bottom: 2rem; 
+    max-height: 90vh; 
+    overflow-y: auto;
+    padding-right: 15px; 
+}
+
+.signup-form-container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    color: #213547;
+}
+
+/* Input Fields and Select */
+.signup-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.signup-form-group label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 0.3rem;
+}
+
+.signup-form-group input,
+.signup-form-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-color: white; 
+}
+
+.signup-form-group select {
+    appearance: none; 
+    -webkit-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%235C2D91" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2em;
+    padding-right: 2.5rem; 
+    cursor: pointer;
+}
+
+.signup-form-group input:focus,
+.signup-form-group select:focus {
+    border-color: var(--hiresphere-purple);
+    box-shadow: 0 0 0 1px var(--hiresphere-purple);
+    outline: none;
+}
+
+/* --- NEW: Code Input Group Styling --- */
+.code-input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.code-input-group input {
+    flex-grow: 1; /* Input takes up available space */
+}
+
+.send-code-btn {
+    background-color: #f0f0f0; 
+    color: #4a4a4a;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    flex-shrink: 0; /* Prevents button from shrinking */
+}
+
+.send-code-btn:hover:not(:disabled) {
+    background-color: #e0e0e0;
+}
+
+.send-code-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* --- NEW: Error Message Styling --- */
+.password-error {
+    color: #d9534f; /* Red/Alert color */
+    font-size: 0.85rem;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* Save Account Button */
+.signup-save-btn {
+    width: 100%;
+    background-color: green;
+    color: white;
+    padding: 0.8rem 1rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s;
+    margin-top: 1rem; 
+}
+
+.signup-save-btn:hover {
+    background-color: white; 
+    color: green;
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .signup-left-panel {
+        display: none; 
+    }
+    .signup-right-panel {
+        width: 100%; 
+        flex: none;
+        padding: 1.5rem;
+    }
+    .signup-form-container {
+        margin-top: 5rem;
+        max-width: 90%;
+        max-height: 90vh;
+    }
+}
+
+@media (max-width: 600px) {
+    .signup-top-nav {
+        top: 1rem;
+        right: 1rem;
+    }
+    .signup-form-container h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    .code-input-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .code-input-group input, .send-code-btn {
+        width: 100%;
+    }
+}
