@@ -7,5 +7,5 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   plugins: [react()],
   // Add base path for GitHub Pages deployment (Highly Recommended)
-  base: "./", 
+  base: "", 
 })
