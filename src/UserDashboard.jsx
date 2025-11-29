@@ -14,8 +14,8 @@ const categories = [
 
 const professionals = [
     // Medical/Doctor
-    { id: 1, name: "Dr. Evelyn Reed", specialty: "Pediatrics (Medical)", info: "8 years experience, specialized in infant care.", price: 800, rating: 4.8, reviews: 150, timings: "Mon-Fri: 10 AM - 5 PM", category: "Medical", image: "med1.jpg" },
-    { id: 2, name: "Dr. Alex Johnson", specialty: "General Practice (Medical)", info: "Experienced primary care physician for all ages.", price: 650, rating: 4.5, reviews: 310, timings: "Mon-Sat: 9 AM - 7 PM", category: "Medical", image: "med2.jpg" },
+    { id: 1, name: "Dr. Evelyn Reed", specialty: "Science", info: "8 years experience, specialized in quantum particles.ther will be a lot of info here to find wether the professional is good or not", price: 800, rating: 4.8, reviews: 150, timings: "Mon-Fri: 10 AM - 5 PM", category: "Science", image: "med1.jpg" },
+    { id: 2, name: "Dr. Alex Johnson", specialty: "Gym trainer", info: "Experienced workout care physician for all ages.you also can get the professionals record of work", price: 650, rating: 4.5, reviews: 310, timings: "Mon-Sat: 9 AM - 7 PM", category: "Science", image: "med2.jpg" },
     // Engineering
     { id: 3, name: "Mark Kinsley", specialty: "Civil Engineer (Engineering)", info: "Expert in structural planning and blueprint design.", price: 1200, rating: 4.5, reviews: 90, timings: "Sat-Sun: 9 AM - 6 PM", category: "Engineering", image: "eng1.jpg" },
     { id: 4, name: "Sofia Lee", specialty: "Software Architect (Engineering)", info: "Designs scalable systems using modern cloud architecture.", price: 1800, rating: 4.9, reviews: 250, timings: "Mon-Fri: 9 AM - 5 PM", category: "Engineering", image: "eng2.jpg" },
@@ -177,6 +177,7 @@ const UserDashboard = ({ onGoBack, onBookProfessional }) => {
                                 key={pro.id} 
                                 pro={pro} 
                                 onBook={handleBookClick} 
+                                onClick={() => navigate(`/professional/${professional.id}`)}
                             />
                         ))
                     ) : (
@@ -350,6 +351,7 @@ const UserDashboard = ({ onGoBack, onBookProfessional }) => {
                     transform: translateY(-5px);
                     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 191, 255, 0.3); /* Hover lift and glow */
                 }
+                
                 
                 .pro-header {
                     display: flex;
