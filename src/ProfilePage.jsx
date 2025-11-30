@@ -187,6 +187,7 @@ const ProfilePage = ({ onGoBack, onNavigateToBookings, onNavigateToEditProfile, 
                     justify-content: center;
                     max-width: 900px;
                     margin: 0 auto;
+                    
                 }
 
                 /* Mobile Adjustments */

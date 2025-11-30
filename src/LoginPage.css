@@ -58,3 +58,9 @@
   color: #fff;
   text-decoration: underline;
 }
+.captcha-container {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+

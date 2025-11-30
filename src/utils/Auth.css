@@ -12,7 +12,7 @@
 
 .auth-container h2 {
   margin-bottom: 20px;
-  color: #6c63ff;
+  color: #8f8f9c;
 }
 
 .auth-container input {
@@ -21,7 +21,7 @@
   margin: 8px 0;
   border-radius: 6px;
   border: 1px solid #555;
-  background-color: #2c2c3d;
+  background-color: #161675;
   color: #fff;
   font-size: 16px;
 }

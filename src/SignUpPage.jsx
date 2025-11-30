@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import './SignUpPage.css';
+import "./SignUpPage.css";
+
 function SignUpPage({ onSwitchToLogin }) {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [role, setRole] = useState("user"); // dropdown
-  const [profession, setProfession] = useState(""); // extra field if professional
+  const [role, setRole] = useState("user"); 
+  const [profession, setProfession] = useState("");
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -22,8 +23,32 @@ function SignUpPage({ onSwitchToLogin }) {
       return;
     }
 
-    const userData = { fullName, email, phoneNumber, password };
-    localStorage.setItem("user", JSON.stringify(userData));
+    // Fetch existing users array from localStorage
+    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+    // check if email already exists
+    const emailExists = existingUsers.some((user) => user.email === email);
+    if (emailExists) {
+      alert("Email is already registered!");
+      return;
+    }
+
+    // new user object
+    const newUser = {
+      fullName,
+      email,
+      phoneNumber,
+      password,
+      role,
+      profession,
+    };
+
+    // add new user into array
+    existingUsers.push(newUser);
+
+    // save to localStorage
+    localStorage.setItem("users", JSON.stringify(existingUsers));
+
     alert("Registration successful!");
     onSwitchToLogin();
   };
@@ -67,22 +92,22 @@ function SignUpPage({ onSwitchToLogin }) {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
-           {/* Dropdown for User or Professional */}
+
+        {/* Dropdown for user type */}
         <select value={role} onChange={(e) => setRole(e.target.value)}>
           <option value="user">User (Need Services)</option>
           <option value="professional">Professional (Offer Services)</option>
         </select>
 
-        {/* Extra input only for professional */}
+        {/* Show only if professional */}
         {role === "professional" && (
           <input
             type="text"
-            placeholder="Your Profession (e.g., Plumber, Tutor)"
+            placeholder="Your Profession (Electrician, Tutor...)"
             value={profession}
             onChange={(e) => setProfession(e.target.value)}
           />
         )}
-
 
         <button type="submit">Register</button>
       </form>
